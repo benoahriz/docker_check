@@ -48,14 +48,6 @@ opt_parser = OptionParser.new do |opt|
 end
 opt_parser.parse!
 
-#moved this check case to the bottom.
-#case ARGV[0]
-#when "check"
-#  logger.debug "Running check methods"
-#  nagios_check
-#else
-#  puts opt_parser
-#end
 
 #'which' method borrowed from https://github.com/github/hub/blob/master/lib/hub/context.rb
 #looks for executable files in the path that match the argument
@@ -69,6 +61,7 @@ def which(cmd)
     end
 return nil
 end
+
 #'command' method borrowed from https://github.com/github/hub/blob/master/lib/hub/context.rb
 # depends on the above which method
 def command?(name)
@@ -134,8 +127,10 @@ Kernel Version: 3.8.0-33-generic
 ------------
 =end
 def docker_info()
-  cmd = 'docker info'
-    Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
+# changed cmd to use full path for security
+#  cmd = 'docker info'
+  cmd = which('docker') + " info"
+	Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
         docker_info_stdout=stdout.read
         containers = docker_info_stdout.grep(/Containers/).to_s.split(':',2).last
         images = docker_info_stdout.grep(/Images/).to_s.split(':',2).last
