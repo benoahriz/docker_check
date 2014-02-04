@@ -9,9 +9,12 @@ Description
 ----------------------
 
 ruby based nagios plugin to check the on the status of docker
+
 Some references.
 https://www.monitoring-plugins.org/doc/guidelines.html
+
 http://www.kernel-panic.it/openbsd/nagios/nagios6.html
+
 https://blog.centreon.com/good-practices-how-to-develop-monitoring-plugin-nagios/
 
 ----------------------
