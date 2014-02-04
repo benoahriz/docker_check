@@ -9,13 +9,11 @@ https://github.com/benoahriz/docker_check
 Description
 ----------------------
 
-ruby based nagios plugin to check the on the status of docker
+A Ruby based nagios plugin to check the on the status of docker
 
 Some references.
 https://www.monitoring-plugins.org/doc/guidelines.html
-
 http://www.kernel-panic.it/openbsd/nagios/nagios6.html
-
 https://blog.centreon.com/good-practices-how-to-develop-monitoring-plugin-nagios/
 
 ----------------------
@@ -39,6 +37,8 @@ Options
 ----------------------
 Requirements
 ----------------------
+Intended to be used with nrpe since the script needs to be run locally on the docker host.
+
 require 'open3'
 require 'optparse'
 require 'logger'
