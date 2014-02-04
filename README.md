@@ -38,6 +38,10 @@ Options
 Requirements
 ----------------------
 Intended to be used with nrpe since the script needs to be run locally on the docker host.
+Check this tutorial.
+https://www.digitalocean.com/community/articles/how-to-create-nagios-plugins-with-ruby-on-ubuntu-12-10
+
+I tried to keep to using only standard ruby libraries.
 
 require 'open3'
 require 'optparse'
